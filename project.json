@@ -39,6 +39,62 @@
 				"text" : "Clock Size",
 				"type" : "slider",
 				"value" : 2
+			},
+			"fontType" :
+			{
+				"options" :
+				[
+					{
+						"label" : "Kosugi Maru",
+						"value" : 1
+					},
+					{
+						"label" : "Kosugi",
+						"value" : 2
+					},
+					{
+						"label" : "Sawarabi Mincho",
+						"value" : 3
+					},
+					{
+						"label" : "M PLUS 1p",
+						"value" : 4
+					},
+					{
+						"label" : "M PLUS Rounded 1c",
+						"value" : 5
+					}
+				],
+				"order" : 3,
+				"text" : "Font",
+				"type" : "combo",
+				"value" : 1
+			},
+			"fontWeight" : {
+				"condition" : "fontType.value >= 4",
+				"options" :
+				[
+					{
+						"label" : "Thin",
+						"value" : "-Thin"
+					},
+					{
+						"label" : "Light",
+						"value" : "-Light"
+					},
+					{
+						"label" : "Regular",
+						"value" : "-Regular"
+					},
+					{
+						"label" : "Medium",
+						"value" : "-Medium"
+					}
+				],
+				"order" : 4,
+				"text" : "Font Weight",
+				"type" : "combo",
+				"value" : "-Regular"
 			}
 		}
 	},

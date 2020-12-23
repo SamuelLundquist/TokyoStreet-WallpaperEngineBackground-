@@ -5,6 +5,8 @@ var time_block;
 var clock_elem;
 var date_elem;
 var avail_height;
+var font = "KosugiMaru-Regular";
+var font_weight = "-Regular";
 
 window.wallpaperPropertyListener = {
 	applyUserProperties: function(properties) {
@@ -17,11 +19,44 @@ window.wallpaperPropertyListener = {
 			let font_size = sizePref + "em";
 			time_block.style.fontSize = font_size;
 		}
+		if(properties.fontType) {
+			let fontType = properties.fontType.value;
+			if(fontType == 1) {
+				font = "KosugiMaru-Regular";
+				time_block.style.fontFamily = font;
+				clock_elem.style.fontSize = "2em";
+			} else if (fontType == 2) {
+				font = "Kosugi-Regular";
+				time_block.style.fontFamily = font;
+				clock_elem.style.fontSize = "2em";
+			} else if (fontType == 3) {
+				font = "SawarabiMincho";
+				time_block.style.fontFamily = font;
+				clock_elem.style.fontSize = "2em";
+			} else if (fontType == 4) {
+				font = "MPLUS1p" + font_weight;
+				time_block.style.fontFamily = font;
+				clock_elem.style.fontSize = "1.8em";
+			} else if (fontType == 5) {
+				font = "MPLUSRounded1c" + font_weight;
+				time_block.style.fontFamily = font;
+				clock_elem.style.fontSize = "1.8em";
+			} else {
+				font = "KosugiMaru-Regular";
+				time_block.style.fontFamily = font;
+				clock_elem.style.fontSize = "2em";
+			}
+		}
+		if(properties.fontWeight) {
+			let fontWeight = properties.fontWeight.value;
+			font_weight = fontWeight;
+			font = font.split("-")[0] + fontWeight;
+			time_block.style.fontFamily = font;
+		}
 	}
 };
 
 function rescaleWindow() {
-	console.log("resized");
 	//Set clock position right above taskbar, or above watermark if taskbar hidden
 	//If taskbar hidden, max will return screen.height * 0.02 which is above watermark of background picture
 	//If not hidden, then max will return screen.height - avail_height + 10, which is right above taskbar
