@@ -53,6 +53,14 @@ window.wallpaperPropertyListener = {
 			let timeType = properties.customTime.value;
 			use24HourClock = timeType;
 		}
+		if (properties.dateFormat) {
+			let date_format = properties.dateFormat.value;
+			if(date_format == 1) {
+				dayofweek = ["日)","月)","火)","水)","木)","金)","土)"];
+			} else {
+				dayofweek = ["日)","一)","二)","三)","四)","五)","六)"];
+			}
+		}
 		if (properties.clockSize) {
 			let sizePref = properties.clockSize.value;
 			let font_size = sizePref + "em";

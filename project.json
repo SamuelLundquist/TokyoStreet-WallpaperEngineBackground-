@@ -60,12 +60,31 @@
 				"type" : "combo",
 				"value" : true
 			},
+			"dateFormat" :
+			{
+				"condition" : "showTime.value",
+				"options" :
+				[
+					{
+						"label" : "Japanese",
+						"value" : 1
+					},
+					{
+						"label" : "Chinese",
+						"value" : 2
+					}
+				],
+				"order" : 6,
+				"text" : "Date Format",
+				"type" : "combo",
+				"value" : 1
+			},
 			"clockSize" :
 			{
 				"condition" : "showTime.value",
 				"max" : 5,
 				"min" : 1,
-				"order" : 6,
+				"order" : 7,
 				"text" : "Clock Size",
 				"type" : "slider",
 				"value" : 2
@@ -104,7 +123,7 @@
 						"value" : 7
 					}
 				],
-				"order" : 7,
+				"order" : 8,
 				"text" : "Font",
 				"type" : "combo",
 				"value" : 1
@@ -130,7 +149,7 @@
 						"value" : "-Medium"
 					}
 				],
-				"order" : 8,
+				"order" : 9,
 				"text" : "Font Weight",
 				"type" : "combo",
 				"value" : "-Regular"
