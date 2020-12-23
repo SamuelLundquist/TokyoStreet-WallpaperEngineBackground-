@@ -15,6 +15,7 @@ Find it on the Steam Workshop! ([https://steamcommunity.com/sharedfiles/filedeta
 - Tokyo Street by ArseniXC ([TokyoStreet](https://www.deviantart.com/arsenixc/art/Tokyo-street-636792646))
 - Tokyo Street Sunset by ArseniXC ([TokyoStreetSunset](https://www.deviantart.com/arsenixc/art/Tokyo-Street-Sunset-680726181))
 - Tokyo Street Night by ArseniXC ([TokyoStreetNight](https://www.deviantart.com/arsenixc/art/Tokyo-Street-Night-684804497))
-[Note] I do not own any of this artwork, it was acquired form the links above. This web software will always be free and open to the public and is only for nonprofit use.
+
+[Note] *I do not own any of this artwork, it was acquired form the links above. This web software will always be free and open to the public and is only for nonprofit use.*
 
 ### **[Special Note]:** *Most of this projects customization features are only usable when used within the Wallpaper Engine software. This is due to how the user preferences are loaded and accessible with the 'project.json' file.*
