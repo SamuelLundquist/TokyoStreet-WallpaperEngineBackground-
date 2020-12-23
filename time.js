@@ -263,7 +263,7 @@ function dayCheck() {
 	var imageUrl;
 	if(mins < sunrise) {
 		imageUrl = "url(./media/night01.jpg)";
-	} else if(sunrise <= mins && mins < sunrise + sunrise_duration) {
+	} else if(sunrise <= mins && mins < sunset && mins < sunrise + sunrise_duration) {
 		imageUrl = "url(./media/sunset01.jpg)";
 	} else if(mins < sunset) {
 		imageUrl = "url(./media/day01.jpg)";
