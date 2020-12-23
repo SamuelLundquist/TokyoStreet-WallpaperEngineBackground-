@@ -147,10 +147,6 @@ function formatHours(hr) {
 }
 
 function update() {
-	//Check to see if window has changed, update clock position if changed
-	if(screen.availHeight != avail_height) {
-		rescaleWindow();
-	}
 
 	//Get new date value
 	var d = new Date();
@@ -161,6 +157,10 @@ function update() {
 	}
 
 	if(showTime) {
+		//Check to see if window has changed, update clock position if changed
+		if(screen.availHeight != avail_height) {
+			rescaleWindow();
+		}
 		//Use new date value to update time and date
 		clock_elem.innerHTML = '' + formatHours(d.getHours()) + ":" + ('0' + d.getMinutes()).slice(-2);
 		date_elem.innerHTML = d.getFullYear() + "年" + (d.getMonth()+1) + "月" + d.getDate() + "日 (" + dayofweek[d.getDay()];
