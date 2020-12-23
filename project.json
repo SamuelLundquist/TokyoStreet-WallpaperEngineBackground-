@@ -13,8 +13,16 @@
 				"type" : "color",
 				"value" : "0 0 0"
 			},
+			"showTime" :
+			{
+				"order" : 1,
+				"text" : "Show Time",
+				"type" : "bool",
+				"value" : true
+			},
 			"customTime" :
 			{
+				"condition" : "showTime.value == true",
 				"options" :
 				[
 					{
@@ -26,22 +34,24 @@
 						"value" : true
 					}
 				],
-				"order" : 1,
+				"order" : 2,
 				"text" : "Time Format",
 				"type" : "combo",
 				"value" : true
 			},
 			"clockSize" :
 			{
+				"condition" : "showTime.value == true",
 				"max" : 5,
 				"min" : 1,
-				"order" : 2,
+				"order" : 3,
 				"text" : "Clock Size",
 				"type" : "slider",
 				"value" : 2
 			},
 			"fontType" :
 			{
+				"condition" : "showTime.value == true",
 				"options" :
 				[
 					{
@@ -73,13 +83,13 @@
 						"value" : 7
 					}
 				],
-				"order" : 3,
+				"order" : 4,
 				"text" : "Font",
 				"type" : "combo",
 				"value" : 1
 			},
 			"fontWeight" : {
-				"condition" : "fontType.value >= 4",
+				"condition" : "fontType.value >= 4 && showTime.value == true",
 				"options" :
 				[
 					{
@@ -99,7 +109,7 @@
 						"value" : "-Medium"
 					}
 				],
-				"order" : 4,
+				"order" : 5,
 				"text" : "Font Weight",
 				"type" : "combo",
 				"value" : "-Regular"

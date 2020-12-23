@@ -1,5 +1,6 @@
 var backgroundList = ["night01.jpg","night01.jpg","night01.jpg","night01.jpg","night01.jpg","night01.jpg","sunset01.jpg","sunset01.jpg","day01.jpg","day01.jpg","day01.jpg","day01.jpg","day01.jpg","day01.jpg","day01.jpg","day01.jpg","day01.jpg","day01.jpg","day01.jpg","sunset01.jpg","sunset01.jpg","night01.jpg","night01.jpg","night01.jpg","night01.jpg"];
 var dayofweek = ["日)","月)","火)","水)","木)","金)","土)"];
+var showTime = true;
 var use24HourClock = true;
 var time_block;
 var clock_elem;
@@ -10,6 +11,14 @@ var font_weight = "-Regular";
 
 window.wallpaperPropertyListener = {
 	applyUserProperties: function(properties) {
+		if (properties.showTime) {
+			showTime = properties.showTime.value;
+			if(!showTime) {
+				time_block.style.visibility = "collapse";
+			} else {
+				time_block.style.visibility = "visible";
+			}
+		}
 		if (properties.customTime) {
 			let timeType = properties.customTime.value;
 			use24HourClock = timeType;
