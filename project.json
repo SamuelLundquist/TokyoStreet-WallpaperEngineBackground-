@@ -63,6 +63,14 @@
 					{
 						"label" : "M PLUS Rounded 1c",
 						"value" : 5
+					},
+					{
+						"label" : "NotoSansJP",
+						"value" : 6
+					},
+					{
+						"label" : "NotoSerifJP",
+						"value" : 7
 					}
 				],
 				"order" : 3,
