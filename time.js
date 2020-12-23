@@ -7,8 +7,8 @@ var date_elem;
 var avail_height;
 var font = "KosugiMaru-Regular";
 var font_weight = "-Regular";
-var sunrise = 60 * 6 + 05;
-var sunset = 60 * 19 + 15;
+var sunrise = 365;
+var sunset = 1155;
 var sunrise_duration = 10;
 var currentMinute = 0;
 
