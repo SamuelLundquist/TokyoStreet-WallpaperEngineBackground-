@@ -1,4 +1,3 @@
-var backgroundList = ["night01.jpg","night01.jpg","night01.jpg","night01.jpg","night01.jpg","night01.jpg","sunset01.jpg","sunset01.jpg","day01.jpg","day01.jpg","day01.jpg","day01.jpg","day01.jpg","day01.jpg","day01.jpg","day01.jpg","day01.jpg","day01.jpg","day01.jpg","sunset01.jpg","sunset01.jpg","night01.jpg","night01.jpg","night01.jpg","night01.jpg"];
 var dayofweek = ["日)","月)","火)","水)","木)","金)","土)"];
 var showTime = true;
 var use24HourClock = true;
@@ -8,6 +7,10 @@ var date_elem;
 var avail_height;
 var font = "KosugiMaru-Regular";
 var font_weight = "-Regular";
+var sunrise = 60 * 6 + 05;
+var sunset = 60 * 19 + 15;
+var sunrise_duration = 10;
+var currentMinute = 0;
 
 window.wallpaperPropertyListener = {
 	applyUserProperties: function(properties) {
@@ -18,6 +21,35 @@ window.wallpaperPropertyListener = {
 			} else {
 				time_block.style.visibility = "visible";
 			}
+		}
+		if (properties.sunrise) {
+			let input = properties.sunrise.value.split(":");
+			let hours = parseInt(input[0]) % 24;
+			let minutes = parseInt(input[1]) % 60;
+			let total_mins = 60 * hours + minutes;
+			if (total_mins > 0) {
+				sunrise = total_mins;
+			}
+			currentMinute = -1;
+			document.getElementById("sunrise").innerHTML = sunrise;
+		}
+		if (properties.sunset) {
+			let input = properties.sunset.value.split(":");
+			let hours = parseInt(input[0]) % 24;
+			let minutes = parseInt(input[1]) % 60;
+			let total_mins = 60 * hours + minutes;
+			if (total_mins > 0) {
+				sunset = total_mins;
+			}
+			currentMinute = -1;
+			document.getElementById("sunset").innerHTML = sunset;
+		}
+		if (properties.sunriseTime) {
+			let minutes = parseInt(properties.sunriseTime.value) % 100;
+			if (minutes > 0) {
+				sunrise_duration = minutes;
+			}
+			currentMinute = -1;
 		}
 		if (properties.customTime) {
 			let timeType = properties.customTime.value;
@@ -96,7 +128,6 @@ function load() {
 
 	//Set update intervals
 	setInterval(update,1000);//update every second
-	setInterval(dayCheck, 60000);//update every minute
 }
 
 function formatHours(hr) {
@@ -104,7 +135,7 @@ function formatHours(hr) {
 	if(hr == 0) {
 		newHr += use24HourClock ? "00" : "12";
 	} else {
-		newHr += ((use24HourClock ? '0' + d.getHours() : '0' + d.getHours() % 12) || 12).slice(-2);
+		newHr += ((use24HourClock ? '0' + hr : '0' + hr % 12) || 12).slice(-2);
 	}
 	return newHr;
 }
@@ -118,6 +149,11 @@ function update() {
 	//Get new date value
 	var d = new Date();
 
+	if(d.getMinutes() != currentMinute) {
+		currentMinute = d.getMinutes();
+		dayCheck();
+	}
+
 	//Use new date value to update time and date
 	clock_elem.innerHTML = '' + formatHours(d.getHours()) + ":" + ('0' + d.getMinutes()).slice(-2);
 
@@ -126,12 +162,25 @@ function update() {
 
 function dayCheck() {
 	//Get new date value
-	var dayTime = new Date();
+	let dayTime = new Date();
 
-	//Get currrent time
-	var curHour = dayTime.getHours();
+	//Get current time
+	let curHour = dayTime.getHours();
+	let curMin = dayTime.getMinutes();
+	let mins = 60 * curHour + curMin;
 
-	//Using current time, determine whether sunrise, day, sunset, or night
-	var imageUrl = "url(./files/" + backgroundList[curHour] + ")";
+	var imageUrl;
+	if(mins < sunrise) {
+		imageUrl = "url(./files/night01.jpg)";
+	} else if(sunrise <= mins && mins < sunrise + sunrise_duration) {
+		imageUrl = "url(./files/sunset01.jpg)";
+	} else if(mins < sunset) {
+		imageUrl = "url(./files/day01.jpg)";
+	} else if(sunset <= mins && mins < sunset + sunrise_duration) {
+		imageUrl = "url(./files/sunset01.jpg)";
+	} else {
+		imageUrl = "url(./files/night01.jpg)";
+	}
+	console.log(mins, sunrise, sunset);
 	document.body.style.backgroundImage = imageUrl;
 }

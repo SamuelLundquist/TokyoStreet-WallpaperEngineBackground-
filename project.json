@@ -13,16 +13,37 @@
 				"type" : "color",
 				"value" : "0 0 0"
 			},
-			"showTime" :
+			"sunrise" :
 			{
 				"order" : 1,
+				"text" : "Sunrise (hh:mm)",
+				"type" : "textinput",
+				"value" : "6:05"
+			},
+			"sunset" :
+			{
+				"order" : 2,
+				"text" : "Sunset (hh:mm)",
+				"type" : "textinput",
+				"value" : "19:15"
+			},
+			"sunriseTime" :
+			{
+				"order" : 3,
+				"text" : "Duration (mm)",
+				"type" : "textinput",
+				"value" : "10"
+			},
+			"showTime" :
+			{
+				"order" : 4,
 				"text" : "Show Time",
 				"type" : "bool",
 				"value" : true
 			},
 			"customTime" :
 			{
-				"condition" : "showTime.value == true",
+				"condition" : "showTime.value",
 				"options" :
 				[
 					{
@@ -34,24 +55,24 @@
 						"value" : true
 					}
 				],
-				"order" : 2,
+				"order" : 5,
 				"text" : "Time Format",
 				"type" : "combo",
 				"value" : true
 			},
 			"clockSize" :
 			{
-				"condition" : "showTime.value == true",
+				"condition" : "showTime.value",
 				"max" : 5,
 				"min" : 1,
-				"order" : 3,
+				"order" : 6,
 				"text" : "Clock Size",
 				"type" : "slider",
 				"value" : 2
 			},
 			"fontType" :
 			{
-				"condition" : "showTime.value == true",
+				"condition" : "showTime.value",
 				"options" :
 				[
 					{
@@ -83,13 +104,13 @@
 						"value" : 7
 					}
 				],
-				"order" : 4,
+				"order" : 7,
 				"text" : "Font",
 				"type" : "combo",
 				"value" : 1
 			},
 			"fontWeight" : {
-				"condition" : "fontType.value >= 4 && showTime.value == true",
+				"condition" : "fontType.value >= 4 && showTime.value",
 				"options" :
 				[
 					{
@@ -109,7 +130,7 @@
 						"value" : "-Medium"
 					}
 				],
-				"order" : 5,
+				"order" : 8,
 				"text" : "Font Weight",
 				"type" : "combo",
 				"value" : "-Regular"
