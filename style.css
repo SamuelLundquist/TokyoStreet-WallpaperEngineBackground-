@@ -1,0 +1,39 @@
+@font-face{
+	font-family: 'KosugiMaru-Regular';
+	src: url('./fonts/KosugiMaru-Regular.ttf');
+}
+
+html {
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background-image: "./files/day01.jpg";
+	background-size: 100% 100%;
+}
+
+#time {
+	position: absolute;
+	right: 10px;
+	font-family: 'KosugiMaru-Regular';
+	font-size: 1em;
+}
+
+#clock {
+	text-align:right;
+	color: white;
+	font-size: 2em;
+	cursor:default;
+	user-select: none;
+}
+
+#date {
+	text-align:right;
+	color: white;
+	font-size: .5em;
+	cursor:default;
+	user-select: none;
+}

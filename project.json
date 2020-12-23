@@ -1,0 +1,51 @@
+{
+	"contentrating" : "Everyone",
+	"description" : "Tokyo Street Project\r\n-Should scale for most resolutions\r\n-Background changes depending on time of day\r\n-Clock and date with Japanese time format\r\n\r\nEnjoy!",
+	"file" : "background.html",
+	"general" :
+	{
+		"properties" :
+		{
+			"schemecolor" :
+			{
+				"order" : 0,
+				"text" : "ui_browse_properties_scheme_color",
+				"type" : "color",
+				"value" : "0 0 0"
+			},
+			"customTime" :
+			{
+				"options" :
+				[
+					{
+						"label" : "12h",
+						"value" : false
+					},
+					{
+						"label" : "24h",
+						"value" : true
+					}
+				],
+				"order" : 1,
+				"text" : "Time Format",
+				"type" : "combo",
+				"value" : true
+			},
+			"clockSize" :
+			{
+				"max" : 5,
+				"min" : 1,
+				"order" : 2,
+				"text" : "Clock Size",
+				"type" : "slider",
+				"value" : 2
+			}
+		}
+	},
+	"preview" : "preview.png",
+	"tags" : [ "Anime" ],
+	"title" : "Tokyo Street with Day Night Cycle and Clock (Japanese Time Format)",
+	"type" : "web",
+	"visibility" : "public",
+	"workshopid" : "1685364754"
+}
