@@ -31,7 +31,6 @@ window.wallpaperPropertyListener = {
 				sunrise = total_mins;
 			}
 			currentMinute = -1;
-			document.getElementById("sunrise").innerHTML = sunrise;
 		}
 		if (properties.sunset) {
 			let input = properties.sunset.value.split(":");
@@ -42,7 +41,6 @@ window.wallpaperPropertyListener = {
 				sunset = total_mins;
 			}
 			currentMinute = -1;
-			document.getElementById("sunset").innerHTML = sunset;
 		}
 		if (properties.sunriseTime) {
 			let minutes = parseInt(properties.sunriseTime.value) % 100;
@@ -181,6 +179,5 @@ function dayCheck() {
 	} else {
 		imageUrl = "url(./files/night01.jpg)";
 	}
-	console.log(mins, sunrise, sunset);
 	document.body.style.backgroundImage = imageUrl;
 }
