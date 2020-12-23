@@ -191,15 +191,15 @@ function dayCheck() {
 
 	var imageUrl;
 	if(mins < sunrise) {
-		imageUrl = "url(./files/night01.jpg)";
+		imageUrl = "url(./media/night01.jpg)";
 	} else if(sunrise <= mins && mins < sunrise + sunrise_duration) {
-		imageUrl = "url(./files/sunset01.jpg)";
+		imageUrl = "url(./media/sunset01.jpg)";
 	} else if(mins < sunset) {
-		imageUrl = "url(./files/day01.jpg)";
+		imageUrl = "url(./media/day01.jpg)";
 	} else if(sunset <= mins && mins < sunset + sunrise_duration) {
-		imageUrl = "url(./files/sunset01.jpg)";
+		imageUrl = "url(./media/sunset01.jpg)";
 	} else {
-		imageUrl = "url(./files/night01.jpg)";
+		imageUrl = "url(./media/night01.jpg)";
 	}
 	document.body.style.backgroundImage = imageUrl;
 }

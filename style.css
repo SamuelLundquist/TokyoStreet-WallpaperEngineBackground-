@@ -1,3 +1,9 @@
+/*
+	Note: font families have been loaded as separate families, this is not ideal
+	nor standard practice. However, in order to work with the Wallpaper Engine
+	implementation, the fonts needed to be distincly separate. This is why they
+	are not loaded as different font weights of the same family.
+*/
 @font-face {
 	font-family: 'KosugiMaru-Regular';
 	src: url('./fonts/KosugiMaru-Regular.ttf');
@@ -140,7 +146,7 @@ body {
 	margin: 0;
 	padding: 0;
 	background-color: black;
-	background-image: "./files/day01.jpg";
+	background-image: "./media/day01.jpg";
 	background-size: 100% 100%;
 	transition: 1s;
 }
