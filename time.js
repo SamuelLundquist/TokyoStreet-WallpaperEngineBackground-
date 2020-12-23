@@ -160,10 +160,11 @@ function update() {
 		dayCheck();
 	}
 
-	//Use new date value to update time and date
-	clock_elem.innerHTML = '' + formatHours(d.getHours()) + ":" + ('0' + d.getMinutes()).slice(-2);
-
-	date_elem.innerHTML = d.getFullYear() + "年" + (d.getMonth()+1) + "月" + d.getDate() + "日 (" + dayofweek[d.getDay()];
+	if(showTime) {
+		//Use new date value to update time and date
+		clock_elem.innerHTML = '' + formatHours(d.getHours()) + ":" + ('0' + d.getMinutes()).slice(-2);
+		date_elem.innerHTML = d.getFullYear() + "年" + (d.getMonth()+1) + "月" + d.getDate() + "日 (" + dayofweek[d.getDay()];
+	}
 }
 
 function dayCheck() {
