@@ -54,7 +54,7 @@ window.wallpaperPropertyListener = {
 			let total_mins = 60 * hours + minutes;
 
 			//If new input valid, update sunset time
-			if (total_mins > 0) {
+			if (total_mins > 0 && total_mins > sunrise) {
 				sunset = total_mins;
 				//Update current minute to -1, which forces update() to run
 				//dayCheck() to properly display changes made to wallpaper
