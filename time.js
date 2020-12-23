@@ -44,11 +44,11 @@ window.wallpaperPropertyListener = {
 			} else if (fontType == 6) {
 				font = "NotoSansJP" + font_weight;
 				time_block.style.fontFamily = font;
-				clock_elem.style.fontSize = "1.8em";
+				clock_elem.style.fontSize = "2em";
 			} else if (fontType == 7) {
 				font = "NotoSerifJP" + font_weight;
 				time_block.style.fontFamily = font;
-				clock_elem.style.fontSize = "1.8em";
+				clock_elem.style.fontSize = "2em";
 			} else {
 				font = "KosugiMaru-Regular";
 				time_block.style.fontFamily = font;
