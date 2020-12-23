@@ -72,6 +72,10 @@
 					{
 						"label" : "Chinese",
 						"value" : 2
+					},
+					{
+						"label" : "English",
+						"value" : 3
 					}
 				],
 				"order" : 6,

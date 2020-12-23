@@ -1,4 +1,5 @@
 var dayofweek = ["日)","月)","火)","水)","木)","金)","土)"];
+var usTime = false;
 var showTime = true;
 var use24HourClock = true;
 var time_block;
@@ -56,9 +57,17 @@ window.wallpaperPropertyListener = {
 		if (properties.dateFormat) {
 			let date_format = properties.dateFormat.value;
 			if(date_format == 1) {
+				usTime = false;
+				date_elem.style.fontSize = ".5em";
 				dayofweek = ["日)","月)","火)","水)","木)","金)","土)"];
-			} else {
+			} else if(date_format == 2){
+				usTime = false;
+				date_elem.style.fontSize = ".5em";
 				dayofweek = ["日)","一)","二)","三)","四)","五)","六)"];
+			} else {
+				usTime = true;
+				date_elem.style.fontSize = ".45em";
+				dayofweek = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 			}
 		}
 		if (properties.clockSize) {
@@ -163,7 +172,11 @@ function update() {
 		}
 		//Use new date value to update time and date
 		clock_elem.innerHTML = '' + formatHours(d.getHours()) + ":" + ('0' + d.getMinutes()).slice(-2);
-		date_elem.innerHTML = d.getFullYear() + "年" + (d.getMonth()+1) + "月" + d.getDate() + "日 (" + dayofweek[d.getDay()];
+		if(usTime) {
+			date_elem.innerHTML = (d.getMonth()+1) + "/" + d.getDate() + "/" + d.getFullYear() + " " + dayofweek[d.getDay()];
+		} else {
+			date_elem.innerHTML = d.getFullYear() + "年" + (d.getMonth()+1) + "月" + d.getDate() + "日 (" + dayofweek[d.getDay()];
+		}
 	}
 }
 
