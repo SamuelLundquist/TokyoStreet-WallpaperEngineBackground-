@@ -82,6 +82,16 @@ function load() {
 	setInterval(dayCheck, 60000);//update every minute
 }
 
+function formatHours(hr) {
+	var newHr = "";
+	if(hr == 0) {
+		newHr += use24HourClock ? "00" : "12";
+	} else {
+		newHr += ((use24HourClock ? '0' + d.getHours() : '0' + d.getHours() % 12) || 12).slice(-2);
+	}
+	return newHr;
+}
+
 function update() {
 	//Check to see if window has changed, update clock position if changed
 	if(screen.availHeight != avail_height) {
@@ -92,7 +102,7 @@ function update() {
 	var d = new Date();
 
 	//Use new date value to update time and date
-	clock_elem.innerHTML = ('' + (use24HourClock ? '0' + d.getHours() : '0' + d.getHours() % 12 || 12)).slice(-2) + ":" + ('0' + d.getMinutes()).slice(-2);
+	clock_elem.innerHTML = '' + formatHours(d.getHours()) + ":" + ('0' + d.getMinutes()).slice(-2);
 
 	date_elem.innerHTML = d.getFullYear() + "年" + (d.getMonth()+1) + "月" + d.getDate() + "日 (" + dayofweek[d.getDay()];
 }
