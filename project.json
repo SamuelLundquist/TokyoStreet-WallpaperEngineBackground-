@@ -1,5 +1,5 @@
 {
-	"contentrating" : "Everyone",
+	"concentrating" : "Everyone",
 	"description" : "Tokyo Street Project\r\n-Should scale for most resolutions\r\n-Background changes depending on time of day\r\n-Clock and date with Japanese time format\r\n\r\nEnjoy!",
 	"file" : "background.html",
 	"general" :
@@ -164,6 +164,8 @@
 	"tags" : [ "Anime" ],
 	"title" : "Tokyo Street with Day Night Cycle and Clock (Japanese Time Format)",
 	"type" : "web",
+	"version" : 1.1,
 	"visibility" : "public",
-	"workshopid" : "1685364754"
+	"workshopid" : "1685364754",
+	"workshopurl" : "steam://url/CommunityFilePage/1685364754"
 }
