@@ -30,7 +30,7 @@
 			"sunriseTime" :
 			{
 				"order" : 3,
-				"text" : "Duration (mm)",
+				"text" : "Duration (max 240 mins)",
 				"type" : "textinput",
 				"value" : "10"
 			},

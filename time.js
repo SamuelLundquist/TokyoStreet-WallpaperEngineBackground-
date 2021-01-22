@@ -64,16 +64,21 @@ window.wallpaperPropertyListener = {
 		//Function used to set the sunset/sunrise duration
 		if (properties.sunriseTime) {
 
-			//Parse user input, takes int and mods by 100, to handle excessive input
-			let minutes = parseInt(properties.sunriseTime.value) % 100;
+			//Parse user input, takes int and mods by 240, to handle excessive input
+			let minutes = parseInt(properties.sunriseTime.value) % 241;
 
 			//If new input valid, update sunrise duration
 			if (minutes > 0) {
 				sunrise_duration = minutes;
-				//Update current minute to -1, which forces update() to run
-				//dayCheck() to properly display changes made to wallpaper
-				currentMinute = -1;
 			}
+			//If invalid input, default to 10 minute sunrise duration
+			else {
+				sunrise_duration = 10;
+			}
+
+			//Update current minute to -1, which forces update() to run
+			//dayCheck() to properly display changes made to wallpaper
+			currentMinute = -1;
 		}
 		//Function to determine clokc format, either 24hr or 12hr format
 		if (properties.customTime) {
@@ -201,13 +206,14 @@ function load() {
 //Function used to format hours for clock, takes an int and returns a string
 function formatHours(hr) {
 	var newHr = "";
-	if(hr == 0) // For hour 0, replace with 12 for 12hr format
+	if(use24HourClock) // Get hour for 24hr format
 	{
-		newHr += use24HourClock ? "00" : "12";
+		newHr += ('0' + hr).slice(-2);
 	}
-	else // Otherwise get hour in two digit 24hr or 12hr format
+	else // Otherwise get hour in 12hr format
 	{
-		newHr += ((use24HourClock ? '0' + hr : '0' + hr % 12) || 12).slice(-2);
+		hour = (hr == 0) ? 12 : ((hr > 12) ? (hr - 12): hr);
+		newHr += ('0' + hour).slice(-2);
 	}
 	return newHr;
 }
